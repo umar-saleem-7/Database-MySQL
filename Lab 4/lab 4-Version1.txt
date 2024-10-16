@@ -1,0 +1,50 @@
+--------------(1)--------------
+SELECT ENAME, HIREDATE, SAL
+FROM EMP
+WHERE ENAME <> 'MILLER' 
+AND ENAME <> 'ALLEN'
+AND DEPTNO IN (10, 20)
+AND TO_CHAR(HIREDATE) NOT LIKE '%-%-90'
+AND SAL BETWEEN 5000 AND 9000;
+
+-------------(2)--------------
+SELECT * 
+FROM EMP
+WHERE LENGTH(ENAME) > 5
+AND ((TO_CHAR(HIREDATE) LIKE '%-%-80') OR (TO_CHAR(HIREDATE)  LIKE '%-%-81'));
+AND DEPTNO IN (30,40)
+AND MGR IS NOT NULL
+AND SAL BETWEEN 800 AND 2000
+
+-------------(3)--------------
+SELECT ENAME AS "Empolyee Name", SAL*1.2 AS "Incremented Salary"
+FROM EMP 
+WHERE (SAL*1.2) >= 1200 AND (SAL*1.2) <= 2000
+ORDER BY "Incremented Salary" DESC;
+
+-------------(4)--------------
+SELECT INITCAP(SUBSTR(ENAME, 1,3)) AS "First 3 Letter", INITCAP(SUBSTR(ENAME, LENGTH(ENAME)-3, 3)) AS "Last 3 Letter", JOB AS "Empolyee Job", (SAL*1.15) AS "Incremented Salary"
+FROM EMP 
+WHERE DEPTNO IN (10, 30);
+
+-------------(5)--------------
+SELECT CONCAT(RPAD(ENAME, LENGTH(ENAME)*2, '*') || ' ' || ((SAL*12)/1000) , '*')  AS "Empolyee Name Their Salary" 
+FROM EMP;
+
+-------------(6)--------------
+SELECT DISTINCT E.ENAME AS "Empolyee Name", E.EMPNO AS "Empolyee Number", M.ENAME AS "Manager Name" , M.EMPNO AS "Manager Number" 
+FROM EMP E, EMP M
+WHERE E.MGR = M. EMPNO
+AND M.ENAME NOT IN ('BLAKE, 'FORD');
+
+-------------(7)--------------
+SELECT ENAME, SAL, HIREDATE
+FROM EMP
+WHERE HIREDATE > (SELECT HIREDATE FROM EMP WHERE ENAME = 'JAMES')
+AND SAL > (SELECT SAL FROM EMP WHERE EMPNO = 7876);
+
+-------------(8)-------------
+SELECT ENAME
+FROM EMP
+WHERE  ENAME LIKE '%LL%'
+AND (DEPTNO = 30 OR MGR = 7782);
