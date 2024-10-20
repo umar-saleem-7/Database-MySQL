@@ -1,0 +1,57 @@
+Q1):
+DELETE FROM bonus WHERE worker_id = 30
+
+Q2):
+INSERT INTO salgrade (grade, losal, hisal) VALUES ("A", 25000, 30000)
+
+Q3):
+UPDATE employee SET name = "Umar", sal = 50000 WHERE no = 22
+
+Q4):
+EMPLOYEE_NUMBER		LAST_NAME	FIRST_NAME	SALARY	DEPT_ID
+1003			Everest		Brad		71000	501
+1004			Horvath		Jack		42000	502
+Null			Anderson	Jane		57500	503
+1005			Johnson		Sally		58000	505
+
+Q5):
+UPDATE employee SET employee_number = 1002, last_name = "King", first_name = "Blake",
+salary = 59000, dept_id = 504 WHERE dept_id = 503 
+
+Q6):
+UPDATE employee SET last_name = "Jones" WHERE employee_number = 1004
+
+Q7):
+UPDATE employee SET salary = 100000 WHERE employee_number = 1002
+
+Q8):
+UPDATE employee SET first_name = "Umar" WHERE last_name = "Anderson"
+
+Q9):
+EMPLOYEE_NUMBER		LAST_NAME	FIRST_NAME	SALARY	DEPT_ID
+1003			Everest		Brad		71000	501
+1004			Horvath		Jones		42000	502
+1002			King		Blake		100000	504
+1005			Johnson		Sally		58000	505
+
+Q10):
+DELETE FROM employee WHERE dept_id = 500
+
+Q11):
+DELETE FROM employee WHERE employee_number = 1004
+
+Q12):
+EMPLOYEE_NUMBER		LAST_NAME	FIRST_NAME	SALARY	DEPT_ID
+1003			Everest		Brad		71000	501
+1002			King		Blake		100000	504
+1005			Johnson		Sally		58000	505
+
+Q13):
+INSERT INTO department (deptno, dname, loc) VALUES (10, "Finance", "Lahore")
+
+Q14):
+DELETE FROM title WHERE worker_id = 11
+
+Q15):
+UPDATE worker SET first_name = "Ali", sal = 28500 WHERE worke_id = 120
+
